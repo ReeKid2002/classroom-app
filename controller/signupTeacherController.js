@@ -1,7 +1,7 @@
 const Teacher = require('../models/teacherModel');
 const bcrypt = require('bcrypt');
 module.exports.signUpTeacher = function(req,res){
-    res.render("signup");
+    res.render("signUpTeacher");
 };
 module.exports.createNewTeacher = async function(req,res){
     try{
