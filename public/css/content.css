@@ -1,0 +1,11 @@
+body {
+  margin: 0;
+  padding: 0;
+  color: #0734fc;
+}
+
+.navbar {
+  background-color: #003cff;
+  display: flex;
+  justify-content:space-between;
+}
