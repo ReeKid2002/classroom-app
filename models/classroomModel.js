@@ -5,6 +5,7 @@ const Student = require('./studentModel');
 const Schema = mongoose.Schema;
 const classroomSchema = new Schema({
     name: String,
+    subject: String,
     teacher: {
         type: Schema.Types.ObjectId,
         ref: 'Teacher'

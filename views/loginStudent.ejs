@@ -7,32 +7,32 @@
     <link rel="stylesheet" media="screen and (max-width : 1000px)" href="css/phone.css">
     <script src="https://kit.fontawesome.com/e53f16418b.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/login.css">
-    <title>Create Account | Faculty</title>
+    <style>
+        body{
+            background: #00d2ff;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #3a7bd5, #00d2ff);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #3a7bd5, #00d2ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+    </style>
+    <title>Login</title>
 </head>
-<body style="background: linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%);">
+<body>
     <div class="container">
         <div id="form-part">
-            <h1><center>Sign Up</center></h1>
-<<<<<<< HEAD
-                <form class="form-container" action="/teacher/sign-up" method="POST">
-=======
-                <form class="form-container" action="/teacher/signup" method="POST">
->>>>>>> b38b9ae76159fd5d00f0933a28c57592d1245253
-                    <div>
-                        <label style="margin-left: 10px;" for="Email">Name</label>
-                        <input type="text" name="name" id="name" placeholder="Enter your name"  required>
-                    </div>
-                    <br>
+            <h1><center>Login</center></h1>
+                <form class="form-container" action="/student/login" method="POST">
                     <div >
                         <label style="margin-left: 10px;" for="Email">Email</label>
-                        <input type="email" name="username" id="email" placeholder="iamtheboss@doodle.com"  required>
+                        <input type="email" name="email" id="email" placeholder="iamthebossdoodle.com"  required>
                     </div>
                     <br>
                     <div>
                         <label style="margin-left: 10px;" for="password">Password</label>
                         <input type="password" name="password" id="password" placeholder="Enter Password"  required>
+                        <p><a id="forgot-password" href="">Forgot Password?</a></p>
                     </div>
-                    <center><button id="btn-signin">Sign up</button></center>
+                    <br>
+                    <center><button id="btn-signin"> Log in</button></center>
                 </form>
                 <div class="hr-or">
                     <h4>or connect with</h4>
@@ -41,8 +41,10 @@
                     <li class="social_logo" id="google"><a href="/auth/google" target="_blank"><i
                         class="fab fa-google fa-2x"></i></a></li>
                 </div>
-                <h4 class="login"><center>Already have an Account? <a href="/teacher/login">Login</a> </center></h4>
+                <h4 class="login"><center>Don't have an Account? <a href="/student/signup">Sign Up</a> </center></h4>
+
         </div>
     </div>
+    
 </body>
 </html>
