@@ -3,6 +3,8 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const path = require('path');
 const ejs = require('ejs');
+const passport = require("passport");
+const passportJWT = require("./config/passport-jwt-strategy");
 const app = express();
 const PORT = process.env.PORT | 3000;
 app.use(bodyParser.urlencoded({extended: true}));

@@ -7,4 +7,5 @@ router.use('/student',require('./studentSignUpRoute'));
 router.use('/student',require('./studentLoginRoute'));
 router.use('/teacher',require('./teacherSignUpRoute'));
 router.use('/logout', require('./logoutRoute'));
+router.use('/classroom', require('./classroomRoute'));
 module.exports = router;
