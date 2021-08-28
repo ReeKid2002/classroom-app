@@ -1,9 +1,9 @@
 const express = require("express");
-const {
-  signUpTeacher,
-  createNewTeacher,
-} = require("../controller/signupTeacherController");
+const {renderLogin,renderSignUp,createSession,createNewTeacher } = require('../controller/teacherSignController')
 const router = express.Router();
-router.get("/", signUpTeacher);
-router.post("/", createNewTeacher);
+router.get("/sign-up", renderSignUp);
+router.get("/sign-in", renderLogin);
+
+router.post("/sign-up", createNewTeacher);
+router.post("/sign-in", createSession);
 module.exports = router;

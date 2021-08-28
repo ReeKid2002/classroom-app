@@ -7,18 +7,13 @@
     <link rel="stylesheet" media="screen and (max-width : 1000px)" href="css/phone.css">
     <script src="https://kit.fontawesome.com/e53f16418b.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/login.css">
-    <title>Create Account | Faculty</title>
+    <title>Log In | Student</title>
 </head>
 <body style="background: linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%);">
     <div class="container">
         <div id="form-part">
-            <h1><center>Sign Up</center></h1>
-                <form class="form-container" action="/teacher/sign-up" method="POST">
-                    <div>
-                        <label style="margin-left: 10px;" for="Email">Name</label>
-                        <input type="text" name="name" id="name" placeholder="Enter your name"  required>
-                    </div>
-                    <br>
+            <h1><center>Sign In</center></h1>
+                <form class="form-container" action="/teacher/sign-in" method="POST">
                     <div >
                         <label style="margin-left: 10px;" for="Email">Email</label>
                         <input type="email" name="username" id="email" placeholder="iamtheboss@doodle.com"  required>
@@ -28,7 +23,7 @@
                         <label style="margin-left: 10px;" for="password">Password</label>
                         <input type="password" name="password" id="password" placeholder="Enter Password"  required>
                     </div>
-                    <center><button id="btn-signin">Sign up</button></center>
+                    <center><button id="btn-signin">Sign in</button></center>
                 </form>
                 <div class="hr-or">
                     <h4>or connect with</h4>
@@ -37,7 +32,7 @@
                     <li class="social_logo" id="google"><a href="/auth/google" target="_blank"><i
                         class="fab fa-google fa-2x"></i></a></li>
                 </div>
-                <h4 class="login"><center>Already have an Account? <a href="/login">Login</a> </center></h4>
+                <h4 class="login"><center>Didn't an Account? <a href="/login">Create Account</a> </center></h4>
         </div>
     </div>
 </body>
