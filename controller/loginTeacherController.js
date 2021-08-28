@@ -11,18 +11,18 @@ module.exports.createJWT = async function (req, res) {
     const checkUser = await Teacher.findOne({ email: email });
     if (checkUser) {
       // console.log(checkUser);
-      const checkPassword = await bcrypt.compareSync(
-        password,
-        checkUser.password
-      );
+      const checkPassword = await bcrypt.compareSync(password,checkUser.password);
       if (checkPassword) {
         // console.log(checkPassword);
-        const jwtPayload = {
+        // console.log(email + " " + checkUser.email);
+        const jwtPayloadTeacher = {
           id: checkUser._id,
           name: checkUser.name,
-          email: checkUser.email,
+          email: email,
+          type: 'T'
         };
-        const token = jwt.sign(jwtPayload, "secret");
+        // console.log("JwtPayload: " + jwtPayloadTeacher.email);
+        const token = jwt.sign(jwtPayloadTeacher, "secret");
         res.cookie("jwt", token, { httpOnly: true });
         res.status(200).json({
           message: "Login Successfully",

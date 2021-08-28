@@ -14,12 +14,13 @@ module.exports.createJWT = async function(req,res){
             const checkPassword = await bcrypt.compareSync(password, checkUser.password);
             if(checkPassword){
                 // console.log(checkPassword);
-                const jwtPayload = {
+                const jwtPayloadStudent = {
                     id: checkUser._id,
                     name: checkUser.name,
-                    email: checkUser.email
+                    email: checkUser.email,
+                    type: 'S'
                 }
-                const token = jwt.sign(jwtPayload, "secret");
+                const token = jwt.sign(jwtPayloadStudent, "secret");
                 res.cookie("jwt",token,{httpOnly:true});
                 res.status(200).json({
                     message:"Login Successfully",
