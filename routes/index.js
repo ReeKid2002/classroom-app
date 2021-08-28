@@ -6,5 +6,6 @@ router.get('/',function(request,reposne){
 router.use('/student',require('./studentSignUpRoute'));
 router.use('/student',require('./studentLoginRoute'));
 router.use('/teacher',require('./teacherSignUpRoute'));
-router.use('/logout', require('./logoutRoute'));
+router.use('/teacher', require('./teacherLoginRoute'));
+router.use('/logout',require('./logoutRoute'));
 module.exports = router;
