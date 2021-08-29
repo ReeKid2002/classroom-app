@@ -18,7 +18,7 @@ module.exports.createNewTeacher = async function (req, res) {
         name: name,
         email: email,
         password: hashedPassword,
-        type: 'T',
+        person: 'T',
         classroom: [],
         assignment: [],
       });

@@ -1,7 +1,14 @@
+// ONLY FOR TEACHER
 const Classroom = require('../models/classroomModel');
 const Teacher = require('../models/teacherModel');
 module.exports.createClassroomForm = function(req,res){
-    res.render('testCreateClassroom');
+    if(req.user.person === 'T'){
+        res.render('testCreateClassroom');
+    } else {
+        return res.status(500).json({
+            message: "Student Can't Access This Page"
+        });
+    }
 }
 module.exports.createClassroomPost = async function(req,res){
     try{
