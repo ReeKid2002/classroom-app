@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+
+  <title>Classroom</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
+  <!-- <link rel="stylesheet" href="style.css" /> -->
+  <style>
+    body {
+      background: url(https://images.pexels.com/photos/235985/pexels-photo-235985.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+      background-size: cover;
+      /* opacity: 0.5; */
+      /* z-index: -1;  */
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-sm navbar-dark " style="background-color: bisque;">
+    <a class="navbar-brand" href="#" style="font-weight: bold; margin-left: 25px; color: black;">Classroom</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle Navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 ">
+        <button type="button" class="btn-sm btn-outline-success shadow-none" data-bs-toggle="modal"
+          data-bs-target="#exampleModal" style="margin-left: 20px; margin-right: 20px">
+          Create class
+        </button>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLabel">
+                  Enter Class Details
+                </h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body" style="margin-left: 50px; font-size: 20px; font-weight: bold">
+                Class Name : &nbsp;&nbsp;<input style="
+                      border: none;
+                      border-bottom: solid 2px black;
+                      outline: none;
+                    " type="text" /><br />
+                <br />
+                Subject &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+                &nbsp;&nbsp;<input type="text" style="
+                      border: none;
+                      border-bottom: solid 2px black;
+                      outline: none;
+                    " /><br />
+              </div>
+              <button type="button" class="btn btn-success" style="
+                    margin-left: 120px;
+                    margin-right: 100px;
+                    margin-bottom: 15px;
+                    margin-top: 30px;
+                    font-weight: bold;
+                  ">
+                Create
+              </button>
+            </div>
+          </div>
+        </div>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><button type="button" style="margin-right: 25px;" class="btn btn-outline-danger shadow-none">
+              Sign Out
+            </button></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="d-flex flex-column flex-md-row justify-content-md-evenly gap-3">
+    <div class="card mb-2" style="width: 18rem; margin-left: 20px; margin-top: 20px">
+      <img src="https://source.unsplash.com/1200x530/?laptop" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">Class 1</h5>
+        <br />
+        <a href="#" class="btn btn-dark" style="margin-left: 100px">Enter<i class="fab fa-github"></i></a>
+      </div>
+    </div>
+    <div class="card mb-2" style="width: 18rem; margin-left: 20px; margin-top: 20px">
+      <img src="https://source.unsplash.com/1200x530/?computer science" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">Class 2</h5>
+        <br />
+        <a href="#" class="btn btn-dark" style="margin-left: 100px">Enter<i class="fab fa-github"></i></a>
+      </div>
+    </div>
+    <div class="card mb-2" style="width: 18rem; margin-left: 20px; margin-top: 20px">
+      <img src="https://source.unsplash.com/1200x530/?science" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">Class 3</h5>
+        <br />
+        <a href="#" class="btn btn-dark" style="margin-left: 100px">Enter<i class="fab fa-github"></i></a>
+      </div>
+    </div>
+  </div>
+  <!-- <header class="header">
+      <img class="bg" src="" alt="" />
+    </header> -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

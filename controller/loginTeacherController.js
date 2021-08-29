@@ -1,6 +1,7 @@
 const Teacher = require("../models/teacherModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const { response } = require("express");
 module.exports.renderLogin = function (req, res) {
   res.render("signInTeacher");
 };
@@ -24,12 +25,7 @@ module.exports.createJWT = async function (req, res) {
         // console.log("JwtPayload: " + jwtPayloadTeacher.email);
         const token = jwt.sign(jwtPayloadTeacher, "secret");
         res.cookie("jwt", token, { httpOnly: true });
-        res.status(200).json({
-          message: "Login Successfully",
-          header: {
-            token: token,
-          },
-        });
+        res.redirect('/classroom');
       } else {
         return res.status(500).json({
           message: "Password Not Matched!",

@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <title>Dashboard | Student </title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#" style="margin-left: 25px; font-weight: bold;">Classroom</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle Navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-outline-info shadow-none" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin: 0 20px 0 20px; color: rgb(18, 55, 221); background-color: rgb(248, 225, 14); font-weight: 700;"> Join Class
+                </button>
+                
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel" style="font-weight: bold; font-size: 25px;">Enter Class Code</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body" style="font-weight: bold; font-family: Georgia, 'Times New Roman', Times, serif; margin-left: 15px; ">
+                                Code : &nbsp;&nbsp;<input style="width: 75%; border-radius: 10px; outline: none;" type="text"><br>
+                            </div>
+                                <button type="button" style="margin-bottom: 15px; margin-right: 125px; margin-left: 125px; margin-top: 25px; font-weight: 800px;"  class="btn btn-primary shadow-none">Join</button>
+                        </div>
+                    </div>
+                </div>
+               <a  href="#"><button type="button" class="btn btn-danger shadow-none" style="margin: 0 20px 0 10px; font-weight: 700;"> Sign out
+                </button> </a>
+            </ul>
+        </div>
+    </nav>
+    <br/>
+    <!-- Assignment -->
+    <div style="display: flex; justify-content: space-evenly; ">
+
+        <div class="card mb-2 " style="box-shadow:10px 10px rgb(213, 213, 214); width: 30rem;  margin:15px;">
+            <img src="https://source.unsplash.com/1200x530/?c++" class="card-img-top" alt="...">
+            <div class="card-body ">
+                <h5 class="card-title">Class 1</h5>
+                <br>
+                <div style="display: flex; justify-content: space-evenly;">
+                    <a href="#" class=" btn btn-dark shadow-none" style="justify-content: center; width: 10rem; font-family: Arial, Helvetica, sans-serif; font-weight: bold;  ">Enter<i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-2 " style="box-shadow:10px 10px rgb(213, 213, 214); width: 30rem; margin:15px;">
+            <img src="https://source.unsplash.com/1200x530/?computer" class="card-img-top" alt="...">
+            <div class="card-body ">
+                <h5 class="card-title">Class 2</h5>
+                <br>
+                <div style="display: flex; justify-content: space-evenly;">
+                    <a href="#" class=" btn btn-dark shadow-none" style="justify-content: center; width: 10rem; font-family: Arial, Helvetica, sans-serif; font-weight: bold;">Enter<i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-2 " style="box-shadow:10px 10px rgb(213, 213, 214); width: 30rem; margin:15px;">
+            <img src="https://source.unsplash.com/1200x530/?science" class="card-img-top" alt="...">
+            <div class="card-body ">
+                <h5 class="card-title">Class 3</h5>
+                <br>
+                <div style="display: flex; justify-content: space-evenly;">
+                    <a href="#" class=" btn btn-dark shadow-none" style="justify-content: center; width: 10rem; font-family: Arial, Helvetica, sans-serif; font-weight: bold;">Enter<i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-2 " style=" width: 30rem; margin:15px; box-shadow:10px 10px rgb(213, 213, 214);">
+            <img src="https://source.unsplash.com/1200x530/?computer" class="card-img-top" alt="...">
+            <div class="card-body ">
+                <h5 class="card-title">Class 4</h5>
+                <br>
+                <div style="display: flex; justify-content: space-evenly;">
+                    <a href="#" class=" btn btn-dark shadow-none" style="justify-content: center; width: 10rem; font-family: Arial, Helvetica, sans-serif; font-weight: bold;">Enter<i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
