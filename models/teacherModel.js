@@ -6,6 +6,7 @@ const teacherSchema = new Schema({
     name: String,
     email: String,
     password: String,
+    person: String,
     classroom:  [{
         type: Schema.Types.ObjectId,
         ref: 'Classroom'

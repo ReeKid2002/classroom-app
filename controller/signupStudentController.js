@@ -18,6 +18,7 @@ module.exports.createNewStudent = async function(req,res){
                 name: name,
                 email: email,
                 password: hashedPassword,
+                person: 'S',
                 classroom: [],
                 assignment: []
             });
