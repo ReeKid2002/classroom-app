@@ -10,5 +10,6 @@ router.use('/teacher', require('./teacherLoginRoute'));
 router.use('/createclassroom', require('./classroomRoute'));
 router.use('/showclassroom', require('./showAllClassroomRoute'));
 router.use('/joinclassroom', require('./joinClassroomRoute'));
+router.use('/classroom', require('./assignmentRoute'));
 router.use('/logout',require('./logoutRoute'));
 module.exports = router;
