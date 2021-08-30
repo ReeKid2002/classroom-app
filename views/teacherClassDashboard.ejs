@@ -171,12 +171,12 @@
         <h5 class="card-title">
           <%= allAssignment[i].title %>
         </h5>
-
-        <a href="#" class="btn text-light" style="
+        <form action="/classroom/delete/<%= classroom._id %>/<%= allAssignment[i]._id %>" method="post">
+        <button class="btn text-light" style="
             background-color: rgb(165, 60, 60);
             margin-left: 10px;
             float: right;
-          ">Delete</a>
+          ">Delete</button></form>
         <a href="#" class="btn text-light" style="
             background-color: rgb(107, 107, 211);
             margin-right: 10px;

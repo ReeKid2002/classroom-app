@@ -7,8 +7,6 @@ module.exports.showSingleClassroom = async function(req,res){
         const currentUser = req.user;
         const classId = req.params.classId;
         const classroom = await Classroom.findOne({_id: classId});
-        // console.log(classroom);
-        // console.log(currentUser);
         if(classroom){
             let allAssignment = [];
             let allStudent = [];
@@ -16,17 +14,11 @@ module.exports.showSingleClassroom = async function(req,res){
                 let assignment = await Assignment.findOne({_id: classroom.assignment[i]});
                 allAssignment.push(assignment);
             }
-
-            // console.log(classroom.student.length);
-
             for(let i=0; i<classroom.student.length; i++){
                 let student = await Student.findOne({_id: classroom.student[i]});
-                // console.log(student)
                 allStudent.push(student);
             }
             if(currentUser.person === 'T'){
-                //Send allAssignment and allStudent
-                // console.log(allStudent)
                 res.render('teacherClassDashboard',{
                     allAssignment:allAssignment,
                     allStudent:allStudent,
@@ -34,8 +26,7 @@ module.exports.showSingleClassroom = async function(req,res){
 
                 })
             } else {
-                // Send All Assignment
-                // console.log(allAssignment)
+                // console.log(allAssignment);
                 res.render("studentClassDashboard",{
                     allAssignment:allAssignment
                 });

@@ -30,11 +30,9 @@ module.exports.createAssignmentPost = async function(req,res){
             };
             await Student.findOneAndUpdate({_id: classroom.student[i]},{$addToSet: {assignment: obj}});
         }
-        return res.status(200).json({
-            message: "Assignment Saved",
-            assignment: assignment
-        });
+        res.redirect(`/classroom/${classroomId}`);
     } catch (err) {
+        console.log(err);
         return res.status(500).json({
             message: err
         });
