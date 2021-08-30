@@ -18,7 +18,11 @@ module.exports.showSingleClassroom = async function(req,res){
                 let student = Student.findOne({_id: classroom.assignment[i]});
                 allStudent.push(student);
             }
-            //DO Something with Data Fetched
+            if(currentUser.person === 'T'){
+                //Send allAssignment and allStudent
+            } else {
+                // Send All Assignment
+            }
         } else {
             return res.status(200).json({
                 message: "Classroom Doesn't Exist"
