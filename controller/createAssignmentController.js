@@ -2,10 +2,8 @@ const Assignment = require('../models/assignmentModel');
 const Teacher = require('../models/teacherModel');
 const Student = require('../models/studentModel');
 const Classroom = require('../models/classroomModel');
-module.exports.createAssignmentGet = function(req,res){
 
-}
-
+// module.exports.create
 module.exports.createAssignmentPost = async function(req,res){
     try{
         const { title, description, total } = req.body;
@@ -30,10 +28,13 @@ module.exports.createAssignmentPost = async function(req,res){
             };
             await Student.findOneAndUpdate({_id: classroom.student[i]},{$addToSet: {assignment: obj}});
         }
-        return res.status(200).json({
-            message: "Assignment Saved",
-            assignment: assignment
-        });
+        // return res.status(200).json({
+        //     message: "Assignment Saved",
+        //     assignment: assignment
+        // });
+        res.render('teacherAssignmentDashboard',{
+            assignment:assignment
+        })
     } catch (err) {
         return res.status(500).json({
             message: err

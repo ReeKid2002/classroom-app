@@ -151,9 +151,9 @@
           </div>
         </div>
         <li class="nav-item">
-          <a class="nav-link" href="https://meet.google.com/lookup/<%= classroom.subject %>_<%= classroom.name %>">Start Class</a>
+          <a class="nav-link" href="https://meet.google.com/lookup/<%=classroom.id%>">Start Class</a>
         </li>
-        <li class="nav-item"><a class="nav-link" href="#">Logout</a></li>
+        <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
       </ul>
     </div>
   </nav>
@@ -177,7 +177,7 @@
             margin-left: 10px;
             float: right;
           ">Delete</a>
-        <a href="#" class="btn text-light" style="
+        <a href="/classroom/assignment/<%=  %>" class="btn text-light" style="
             background-color: rgb(107, 107, 211);
             margin-right: 10px;
             float: right;
