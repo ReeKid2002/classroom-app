@@ -1,31 +1,29 @@
 const Assignment = require('../models/assignmentModel');
+const Classroom = require('../models/classroomModel');
 const Student = require('../models/studentModel');
+const Teacher = require('../models/teacherModel');
 module.exports.deleteSingleAssignment = async function(req,res){
     try {
-        const currentUser = req.user;
-        if(currentUser.person === 'T'){
         const classId = req.params.classId;
         const assignId = req.params.assignId;
-        const assignment = Assignment.findOne({_id: assignId, classroom: classId});
+        const assignment = await Assignment.findOne({_id: assignId, classroom: classId});
         if(assignment){
-                for(let i=0; i<assignment.student.length; i++){
-                    const removeAssign = Student.updateOne({_id: assignment.student[i]},{$pull:{ 'assignment.assign': assignment._id}});
-                }
-                const deletedAssign = Assignment.findOneAndDelete({_id: assignment._id});
-            return res.status(500).json({
-                message: "Classroom Deleted"
-            });
+            const removeAssignmentFromTeacher = await Teacher.updateOne({_id: assignment.teacher},{$pull:{ assignment: assignId}});
+            const removeAssignmentFromClassroom = await Classroom.updateOne({_id: classId},{$pull:{ assignment: assignId}});
+            // for(let i=0; i<assignment.student.length; i++){
+            //     const removeAssignmentFromStudent = await Student.updateOne({_id: assignment.student[i]},{$pull:{'assignment.$.assign': assignId}});
+            // }
+            const deletedAssign = await Assignment.findOneAndDelete({_id: assignId});
+            if(deletedAssign){
+                res.redirect(`/classroom/${classId}`);
+            }
             } else {
                 return res.status(500).json({
                 message: "No Such Classroom Exist"
             });
         }
-    } else {
-        return res.status(500).json({
-            message: "Student cant delete Assignment"
-        });
-    }
     } catch (err) {
+        console.log(err);
         return res.status(500).json({
             message: err
         });

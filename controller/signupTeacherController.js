@@ -23,9 +23,10 @@ module.exports.createNewTeacher = async function (req, res) {
         assignment: [],
       });
       await teacher.save();
-      res.status(200).json({
-        message: "Teacher Saved",
-      });
+      // res.status(200).json({
+      //   message: "Teacher Saved",
+      // });
+      res.redirect('/teacher/login');
     }
   } catch (err) {
     return res.status(500).json({

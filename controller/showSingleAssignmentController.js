@@ -15,9 +15,12 @@ module.exports.showSingleAssignment = async function(req,res){
                     allStudent.push(student);
                 }
                 if(currentUser.person === 'T'){
-                    //Send Data for Teacher
+                    res.render("teacherAssignmentDashboard",{
+                        allStudent:allStudent,
+                        assignment:assignment
+                    });
                 } else {
-                    //Send Data for Student
+                    //Send Data for Studen
                 }
             } else {
                 return res.status(500).json({

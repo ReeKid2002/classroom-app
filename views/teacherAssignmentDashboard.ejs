@@ -33,25 +33,21 @@
       </ul>
     </div>
   </nav>
-    <h1>&nbsp;&nbsp;Title</h1>
-   <h3>&nbsp;&nbsp;Description</h3>
-   <br>
-   <br>
+
+    <h1> <%=assignment.title%> </h1>
+   <h3> <%=assignment.description%></h3>
+   <h3> <%=assignment.totalPoint%></h3>
    <br>
 
+    <%for(let i=0;i<allStudent.length;i++){%>
     <div class="card text-light" style="border-radius: 10px; margin: 50px; background-color: rgb(133, 35, 202); max-width: 120rem;">
         <div class="card-body">
-          <h5 class="card-title">Student name</h5>
-          <h5 style="float: right;">marks/total</h5>
-
+          <h5 class="card-title"><%= allStudent[i].name%></h5>
         </div>
       </div>
+      <% } %>
       <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
+    
 
       <a href="#" class="btn btn-lg text-light " style="background-color: rgb(72, 73, 177); margin-right: 55px; float: right;" >Save</a>
     <header class="header">
@@ -61,3 +57,4 @@
 
 </body>
 </html>
+

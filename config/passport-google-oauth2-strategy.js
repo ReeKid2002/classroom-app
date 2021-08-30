@@ -7,10 +7,10 @@ passport.use(
   new googleStrategy(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.GOOGLE_CLIENT_SECRET,
+      consumerSecret: process.GOOGLE_CLIENT_SECRET,
       callbackURL: process.env.GOOGLE_CALLBACK_URL,
-      userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo",
-      passReqToCallback: true,
+      // userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo",
+      // passReqToCallback: true,
     },
     function (accessToken, refreshToken, profile, done) {
       Teacher.findOne({ email: profile.emails[0].value }).exec(function (
