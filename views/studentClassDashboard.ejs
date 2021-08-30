@@ -33,8 +33,9 @@
     </nav>
     <br/>
     <!-- Assignment -->
+    <%for(let i=0;i<allAssignment.length;i++){%>
     <div class="card-body" style="border-radius: 10px; margin: auto ; margin-top: 10px; background-color: rgb(13, 197, 243); width: 85%;">
-        <h5 class="card-title" style="font-size: 24px; font-weight: bold;"><span>Assignment 1</span>
+        <h5 class="card-title" style="font-size: 24px; font-weight: bold;"><span><%= allAssignment[i].title %></span>
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-success shadow-none" data-bs-toggle="modal" data-bs-target="#exampleModal1"  style="background-color: rgb(154, 17, 233); margin-left: 10px; float: right; ">Open
             </button>
@@ -43,12 +44,14 @@
                 <div class="modal-dialog modal-fullscreen">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Title</h5>
+                            <h5 class="modal-title" id="exampleModalLabel"><%= allAssignment[i].title %></h5>
                             <br/><br/>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            Description <br/><br/> Graded
+                            <%= allAssignment[i].description %> 
+                            <br/><br/>
+                            <%= allAssignment[i].totalPoint %>
                             <br/><br/>
                         </div>
                     </div>
@@ -56,6 +59,8 @@
             </div>
             <br/>
     </div>
+
+    <%}%>
 
      <div class="card-body" style="border-radius: 10px; margin: auto ; margin-top: 20px; background-color: rgb(13, 197, 243); width: 85%;">
         <h5 class="card-title" style="font-size: 25px; font-weight: bold;"><span>Assignment 2</span>

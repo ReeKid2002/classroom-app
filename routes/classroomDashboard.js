@@ -6,4 +6,4 @@ router.get('./',function(request,response){
     return response.render('/teacherDashboard');
 })
 
-module.exports = router();
+module.exports = router;

@@ -53,17 +53,18 @@
     <br/>
     <!-- Assignment -->
     <div style="display: flex; justify-content: space-evenly; ">
-      
+        <%for(let i=0;i<allclassroom.length;i++){%>
         <div class="card mb-2 " style="box-shadow:10px 10px rgb(213, 213, 214); width: 30rem;  margin:15px;">
-            <img src="https://source.unsplash.com/1200x530/?c++" class="card-img-top" alt="...">
+            <img src="https://source.unsplash.com/1200x530/?<%= allclassroom[i].subject %>" class="card-img-top" alt="...">
             <div class="card-body ">
-                <h5 class="card-title">class  1</h5>
+                <h5 class="card-title"><%= allclassroom[i].name %></h5>
                 <br>
                 <div style="display: flex; justify-content: space-evenly;">
-                    <a href="#" class=" btn btn-dark shadow-none" style="justify-content: center; width: 10rem; font-family: Arial, Helvetica, sans-serif; font-weight: bold;  ">Enter<i class="fab fa-github"></i></a>
+                    <a href="/classroom/<%= allclassroom[i]._id %>" class=" btn btn-dark shadow-none" style="justify-content: center; width: 10rem; font-family: Arial, Helvetica, sans-serif; font-weight: bold;  ">Enter<i class="fab fa-github"></i></a>
                 </div>
             </div>
         </div>
+        <%}%>
         
 
 
@@ -73,7 +74,7 @@
                 <h5 class="card-title">Class 2</h5>
                 <br>
                 <div style="display: flex; justify-content: space-evenly;">
-                    <a href="#" class=" btn btn-dark shadow-none" style="justify-content: center; width: 10rem; font-family: Arial, Helvetica, sans-serif; font-weight: bold;">Enter<i class="fab fa-github"></i></a>
+                    <a href="" class=" btn btn-dark shadow-none" style="justify-content: center; width: 10rem; font-family: Arial, Helvetica, sans-serif; font-weight: bold;">Enter<i class="fab fa-github"></i></a>
                 </div>
             </div>
         </div>

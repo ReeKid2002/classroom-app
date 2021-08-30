@@ -45,6 +45,7 @@
                 </h3>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
+
               <form action="/createclassroom" method="POST">
               <div class="modal-body" style="margin-left: 50px; font-size: 20px; font-weight: bold">
                 Class Name : &nbsp;&nbsp;<input style="
@@ -105,8 +106,10 @@
             <h5 class="card-title"><%= allclassroom[i].name %></h5>
             <br>
             <div style="display: flex; justify-content: space-between;">
-              <a href="#" class=" btn btn-dark" style="justify-content: center; width: 7rem;" >Enter<i class="fab fa-github"></i></a>
-              <a href="#" class="btn text-light" style="justify-content: center; background-color:  rgb(190, 23, 57); width: 7rem;">Delete<i class="fab fa-github"></i></a>
+              <a href="/classroom/<%= allclassroom[i]._id %>" class=" btn btn-dark" style="justify-content: center; width: 7rem;" >Enter<i class="fab fa-github"></i></a>
+              <form action="/classroom/delete/<%= id %>/<%= person %>/<%= allclassroom[i]._id %>" method="POST">
+                <button type="submit" href="" class="btn text-light" style="justify-content: center; background-color:  rgb(190, 23, 57); width: 7rem;"> Delete<i class="fab fa-github"></i></button>
+              </form>
             </div>         
           </div>
     </div>

@@ -27,9 +27,7 @@ module.exports.joinClassroomPost = async function(req,res){
                 // });
                 console.log("Classroom :",addClassroomToStudent);
                 console.log("Student" ,addStudentToClassroom);
-                return res.render("studentClassroomDashboard", {
-                  classroom:addStudentToClassroom
-                });
+                res.redirect('/showclassroom')
             } else {
                 return res.status(200).json({
                     message: "Classroom Doenot Exist"

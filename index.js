@@ -8,7 +8,7 @@ const path = require('path');
 const ejs = require('ejs');
 const passport = require("passport");
 const passportJWT = require("./config/passport-jwt-strategy");
-const passportGoogle = require("./config/passport-google-oauth2-strategy");
+// const passportGoogle = require("./config/passport-google-oauth2-strategy");
 // const findOrCreate = require("mongoose-findorcreate");
 const app = express();
 const PORT = process.env.PORT | 3000;
@@ -20,6 +20,7 @@ mongoose.connect("mongodb://localhost:27017/classroomDB", {
   useUnifiedTopology: true,
   useNewUrlParser: true,
 });
+
 app.use(cookieParser());
 // console.log(path.join(__dirname, "./public"));
 app.use(express.static('./public'));

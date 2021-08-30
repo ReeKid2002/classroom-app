@@ -1,6 +1,12 @@
 const express = require('express');
 const passport = require('passport');
-const { showClassroom } = require('../controller/showSingleClassroomController');
+const {
+  showSingleClassroom,
+} = require("../controller/showSingleClassroomController");
 const router = express.Router();
-router.get('/:classId', passport.authenticate("jwt", {session: false}), showClassroom);
+router.get(
+  "/:classId",
+  passport.authenticate("jwt", { session: false }),
+  showSingleClassroom
+);
 module.exports = router;
