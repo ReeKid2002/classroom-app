@@ -25,16 +25,12 @@ module.exports.createJWT = async function (req, res) {
         // console.log("JwtPayload: " + jwtPayloadTeacher.email);
         const token = jwt.sign(jwtPayloadTeacher, "secret");
         res.cookie("jwt", token, { httpOnly: true });
-        res.redirect('/classroom');
+        res.redirect('/showclassroom');
       } else {
-        return res.status(500).json({
-          message: "Password Not Matched!",
-        });
+        res.redirect("/teacher/login");
       }
     } else {
-      return res.status(500).json({
-        message: "User Not Found",
-      });
+      res.redirect("/teacher/login");
     }
   } catch (err) {
     return res.status(500).json({

@@ -20,9 +20,9 @@ module.exports.createClassroomPost = async function(req,res){
         const checkClassroom = await Classroom.findOne({name: classroomName, teacher: teacherId});
         // console.log(checkClassroom);
         if(checkClassroom){
-            return res.status(500).json({
-                message: "Classroom With Same Name Exist"
-            });    
+            return res.render("studentClassroomDashboard", {
+                msg:'Classroom Exist'
+            });  
         } else {
             const classroom = new Classroom({
                 name: classroomName,
@@ -35,9 +35,7 @@ module.exports.createClassroomPost = async function(req,res){
             // console.log(`classroom: ${newClassroom._id}`);
             const pushClassroomIntoTeacher = await Teacher.findByIdAndUpdate({_id: teacherId},{$addToSet : { classroom: newClassroom._id }});
             // console.log(newClassroom);
-            return res.status(200).json({
-                message: "Classroom Created"
-            })
+            res.redirect('/showclassroom')
         }
     } catch(err) {
         return res.status(500).json({

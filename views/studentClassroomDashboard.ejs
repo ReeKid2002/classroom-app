@@ -34,32 +34,39 @@
                                 <h5 class="modal-title" id="exampleModalLabel" style="font-weight: bold; font-size: 25px;">Enter Class Code</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
+                            <form action="/joinclassroom" method="POST">
                             <div class="modal-body" style="font-weight: bold; font-family: Georgia, 'Times New Roman', Times, serif; margin-left: 15px; ">
-                                Code : &nbsp;&nbsp;<input style="width: 75%; border-radius: 10px; outline: none;" type="text"><br>
+                                Code : &nbsp;&nbsp;<input name="classroomId" style="width: 75%; border-radius: 10px; outline: none;" type="text"><br>
                             </div>
-                                <button type="button" style="margin-bottom: 15px; margin-right: 125px; margin-left: 125px; margin-top: 25px; font-weight: 800px;"  class="btn btn-primary shadow-none">Join</button>
-                        </div>
+                            <button type="submit" style="margin-bottom: 15px; padding-left: 100px; padding-right: 100px; margin-left: 135px; margin-top: 25px; font-weight: 800px;"  class="btn btn-primary shadow-none">Join</button>
+                            </form>
+                            </div>
                     </div>
                 </div>
-               <a  href="#"><button type="button" class="btn btn-danger shadow-none" style="margin: 0 20px 0 10px; font-weight: 700;"> Sign out
-                </button> </a>
+                <form action="\logout" method="POST">
+               <button type="submit" class="btn btn-danger shadow-none" style="margin: 0 20px 0 10px; font-weight: 700;"> Sign out
+                </button>
+                </form>
             </ul>
         </div>
     </nav>
     <br/>
     <!-- Assignment -->
     <div style="display: flex; justify-content: space-evenly; ">
-
+      
         <div class="card mb-2 " style="box-shadow:10px 10px rgb(213, 213, 214); width: 30rem;  margin:15px;">
             <img src="https://source.unsplash.com/1200x530/?c++" class="card-img-top" alt="...">
             <div class="card-body ">
-                <h5 class="card-title">Class 1</h5>
+                <h5 class="card-title">class  1</h5>
                 <br>
                 <div style="display: flex; justify-content: space-evenly;">
                     <a href="#" class=" btn btn-dark shadow-none" style="justify-content: center; width: 10rem; font-family: Arial, Helvetica, sans-serif; font-weight: bold;  ">Enter<i class="fab fa-github"></i></a>
                 </div>
             </div>
         </div>
+        
+
+
         <div class="card mb-2 " style="box-shadow:10px 10px rgb(213, 213, 214); width: 30rem; margin:15px;">
             <img src="https://source.unsplash.com/1200x530/?computer" class="card-img-top" alt="...">
             <div class="card-body ">
@@ -70,26 +77,8 @@
                 </div>
             </div>
         </div>
-        <div class="card mb-2 " style="box-shadow:10px 10px rgb(213, 213, 214); width: 30rem; margin:15px;">
-            <img src="https://source.unsplash.com/1200x530/?science" class="card-img-top" alt="...">
-            <div class="card-body ">
-                <h5 class="card-title">Class 3</h5>
-                <br>
-                <div style="display: flex; justify-content: space-evenly;">
-                    <a href="#" class=" btn btn-dark shadow-none" style="justify-content: center; width: 10rem; font-family: Arial, Helvetica, sans-serif; font-weight: bold;">Enter<i class="fab fa-github"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="card mb-2 " style=" width: 30rem; margin:15px; box-shadow:10px 10px rgb(213, 213, 214);">
-            <img src="https://source.unsplash.com/1200x530/?computer" class="card-img-top" alt="...">
-            <div class="card-body ">
-                <h5 class="card-title">Class 4</h5>
-                <br>
-                <div style="display: flex; justify-content: space-evenly;">
-                    <a href="#" class=" btn btn-dark shadow-none" style="justify-content: center; width: 10rem; font-family: Arial, Helvetica, sans-serif; font-weight: bold;">Enter<i class="fab fa-github"></i></a>
-                </div>
-            </div>
-        </div>
+        
+        
 
 
     </div>

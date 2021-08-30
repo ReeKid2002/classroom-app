@@ -23,9 +23,7 @@ module.exports.createNewStudent = async function(req,res){
                 assignment: []
             });
             await student.save();
-            res.status(200).json({
-                message: "Student Saved"
-            })
+            res.redirect('/student/login')
         }
     } catch(err){
         return res.status(500).json({

@@ -20,10 +20,15 @@ module.exports.joinClassroomPost = async function(req,res){
             if(classroom){
                 const addStudentToClassroom = await Classroom.findOneAndUpdate({_id: classroomId},{$addToSet: { student: req.user._id }});
                 const addClassroomToStudent = await Student.findOneAndUpdate({_id: req.user._id},{$addToSet: { classroom: classroom._id}});
-                return res.status(200).json({
-                    message: "Student Joined the Class",
-                    student: addClassroomToStudent,
-                    classroom: addStudentToClassroom
+                // return res.status(200).json({
+                //     message: "Student Joined the Class",
+                //     student: addClassroomToStudent,
+                //     classroom: addStudentToClassroom
+                // });
+                console.log("Classroom :",addClassroomToStudent);
+                console.log("Student" ,addStudentToClassroom);
+                return res.render("studentClassroomDashboard", {
+                  classroom:addStudentToClassroom
                 });
             } else {
                 return res.status(200).json({
