@@ -17,13 +17,6 @@ module.exports.createClassroomPost = async function(req,res){
         const { classroomName,  subject } = req.body;
         const teacherId = currentUser.id;
         const teacher = await Teacher.findOne({_id: teacherId});
-        const checkClassroom = await Classroom.findOne({name: classroomName, teacher: teacherId});
-        // console.log(checkClassroom);
-        if(checkClassroom){
-            return res.render("studentClassroomDashboard", {
-                msg:'Classroom Exist'
-            });  
-        } else {
             const classroom = new Classroom({
                 name: classroomName,
                 subject: subject,
@@ -36,7 +29,6 @@ module.exports.createClassroomPost = async function(req,res){
             const pushClassroomIntoTeacher = await Teacher.findByIdAndUpdate({_id: teacherId},{$addToSet : { classroom: newClassroom._id }});
             // console.log(newClassroom);
             res.redirect('/showclassroom')
-        }
     } catch(err) {
         return res.status(500).json({
             message: err.message

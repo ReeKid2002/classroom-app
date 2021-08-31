@@ -23,7 +23,7 @@ module.exports.createJWT = async function (req, res) {
           type: 'T'
         };
         // console.log("JwtPayload: " + jwtPayloadTeacher.email);
-        const token = jwt.sign(jwtPayloadTeacher, "secret");
+        const token = jwt.sign(jwtPayloadTeacher, process.env.JWT_SECRET);
         res.cookie("jwt", token, { httpOnly: true });
         res.redirect('/showclassroom');
       } else {

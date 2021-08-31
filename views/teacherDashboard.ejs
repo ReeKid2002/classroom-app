@@ -7,32 +7,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta charset="UTF-8" />
 
-  <title>Classroom</title>
+  <title>Faculty | Dashboard</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
   <!-- <link rel="stylesheet" href="style.css" /> -->
+  <link rel="icon" type="image/png" href="/image/desk-chair.png"/>
   <style>
     body {
-      background: url(https://images.pexels.com/photos/235985/pexels-photo-235985.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+      background-image: url("/image/teacherdashboard.png");
       background-size: cover;
-      /* opacity: 0.5; */
-      /* z-index: -1;  */
     }
   </style>
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-sm navbar-dark " style="background-color: bisque;">
-    <a class="navbar-brand" href="#" style="font-weight: bold; margin-left: 25px; color: black;">Classroom</a>
+  <nav class="navbar navbar-expand-sm navbar-dark " style="background-color: black; ">
+    <a class="navbar-brand" href="/showclassroom" style="font-weight: bold; margin-left: 25px; color: white;"> 
+      Classroom
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle Navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 ">
-        <button type="button" class="btn-sm btn-outline-success shadow-none" data-bs-toggle="modal"
-          data-bs-target="#exampleModal" style="margin-left: 20px; margin-right: 20px">
+        <button type="button"  class="btn  btn-outline-success shadow-none" data-bs-toggle="modal"
+          data-bs-target="#exampleModal" style="color: white; font-weight: 800; margin-left: 20px; margin-right: 20px">
           Create class
         </button>
 
@@ -78,7 +79,7 @@
         </div>
         <li class="nav-item">
           <form action="/logout" method="POST">
-          <button type="submit" style="margin-right: 25px;" class="btn btn-outline-danger shadow-none">
+          <button type="submit" style="margin-right: 25px;font-weight: 800;" class="btn btn-outline-danger shadow-none">
               Sign Out
             </button>
           </form>
@@ -98,10 +99,13 @@
         </div>
     </div>
     <%}%> -->
+    <%if(allclassroom.length === 0){%>
+      <h3 style="text-align: center; margin-top: 50px;">Haven't created any class yet !!!</h3>
+    <%}else{%>
     <div style="display: flex; justify-content: space-around; margin: 15px; flex-wrap: wrap;">
     <% for ( let i=0;i<allclassroom.length;++i){%>
     <div class="card mb-2 " style=" width: 280px; margin-top: 20px; " >
-          <img src="https://source.unsplash.com/1200x530/?$()"  class="card-img-top" alt="...">
+          <img src="https://source.unsplash.com/1200x530/?$<%= allclassroom[i].title %>%20<%= allclassroom[i].subject %>"  class="card-img-top" alt="...">
           <div class="card-body ">
             <h5 class="card-title"><%= allclassroom[i].name %></h5>
             <br>
@@ -113,7 +117,7 @@
             </div>         
           </div>
     </div>
-    <%}%>
+    <%}}%>
     </div>
   <!-- <header class="header">
       <img class="bg" src="" alt="" />

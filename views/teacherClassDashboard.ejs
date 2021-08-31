@@ -7,12 +7,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta charset="UTF-8" />
 
-  <title>assignment portal</title>
+  <title>Faculty | Class Dashboard</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="/image/desk-chair.png"/>
   <style>
+    body {
+      background: url(/image/teacherdashboard.png);
+      background-position: center;
+    }
+
     .modal-body {
       padding: 0;
       flex: inherit;
@@ -20,26 +26,33 @@
   </style>
 </head>
 
-<body background="zz.jpg">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">&nbsp;&nbsp;Classroom</a>
+<body>
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark" style=" border: 1px solid black;">
+    <a class="navbar-brand" style="font-weight: bold; margin-left: 25px; color: rgb(250, 250, 250);"
+      href="#">&nbsp;&nbsp;Classroom</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle Navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <button class="btn btn-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-          aria-controls="offcanvasRight">
-          Student List
+        <a href="/showclassroom"><button type="submit" style="margin-right: 25px; font-weight: 800;" class="btn btn-outline-light shadow-none">
+              Dashboard
+        </button></a>
+        <button class="btn btn-outline-info shadow-none" type="button" data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" style="margin-left: 0px; margin-right: 10px; font-weight: 800; color: azure;">
+          Students List
         </button>
 
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
           <div class="offcanvas-header">
-            <h5 id="offcanvasRightLabel">Student List</h5>
+            <h5 id="offcanvasRightLabel" style="margin: auto; margin-left: 100px; font-size: 30px; font-weight: bold;">
+              Student List</h5>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-
           </div>
+          <%if(allStudent.length===0){%>
+            <h5 style="margin: auto;">No Students joined yet !!!</h5>
+          <%}else{%>
           <% for(let i=0;i<allStudent.length;i++){ %>
             <div class="offcanvas-body">
               <tr>
@@ -54,14 +67,13 @@
                 </th>
               </tr>
             </div>
-            <% } %>
-
-
+            <% }} %>
         </div>
 
 
 
-        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button type="button" style="margin-left: 10px; margin-right: 10px; font-weight: 800; color: white;" class=" shadow-none btn btn-outline-primary"
+          data-bs-toggle="modal" data-bs-target="#exampleModal">
           Create Assignment
         </button>
 
@@ -141,54 +153,55 @@
                   Post Assignment
                 </button>
               </div>
-            </form>
-
-
-
-
-
+              </form>
             </div>
           </div>
         </div>
-        <li class="nav-item">
-          <a class="nav-link" href="https://meet.google.com/lookup/<%=classroom.id%>">Start Class</a>
-        </li>
-        <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+        <form action="/logout" method="POST">
+        <button style="font-weight: 800; margin-left: 10px; margin-right: 10px" type="submit"
+            class=" shadow-none btn btn-outline-danger">Sign out</button>
+        </form>
       </ul>
     </div>
   </nav>
   <br />
-  <p class="fw-bold">&nbsp;&nbsp;&nbsp;&nbsp;Class Code : <%= classroom._id %> </p>
+
+  <div style="display: flex; justify-content: space-between; margin-left: 40px; margin-right: 40px;">
+    <p class="fw-bold"
+        style="font-weight: bold; margin-left: 15px; color:darkblue; font-size: 20px; font-family: Georgia, 'Times New Roman', Times, serif;">
+        Class Code : <%= classroom._id %>
+    </p>
+        <a target="_blank" href="https://meet.google.com/lookup/<%=classroom.id%>"><button style="margin-left: 10px; margin-right: 10px; font-weight: 700; " type="button"  class="btn btn-success shadow-none">Start Meeting</button></a>
+  </div>
 
   <% for(let i=0;i<allAssignment.length;i++){ %>
     <div class="card text-light" style="
         border-radius: 10px;
-        margin: 50px;
-        background-color: rgb(28, 85, 57);
+        margin: 25px 50px 25px 50px;
+        background-color: black;
         max-width: 120rem;
+        opacity: 0.8;
       ">
       <div class="card-body">
         <h5 class="card-title">
           <%= allAssignment[i].title %>
         </h5>
         <form action="/classroom/delete/<%= classroom._id %>/<%= allAssignment[i]._id %>" method="post">
-        <button class="btn text-light" style="
+          <button class="btn text-light" style="
             background-color: rgb(165, 60, 60);
             margin-left: 10px;
             float: right;
-          ">Delete</button></form>
+          ">Delete</button>
+        </form>
 
         <a href="/classroom/<%= classroom._id %>/<%= allAssignment[i]._id %>" class="btn text-light" style="
             background-color: rgb(107, 107, 211);
             margin-right: 10px;
             float: right;
-          ">open</a>
+          ">Open</a>
       </div>
     </div>
     <% } %>
-      <header class="header">
-        <img class="bg" src="img.png" alt="" />
-      </header>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
         crossorigin="anonymous"></script>

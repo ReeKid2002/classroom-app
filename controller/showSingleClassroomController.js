@@ -28,7 +28,8 @@ module.exports.showSingleClassroom = async function(req,res){
             } else {
                 // console.log(allAssignment);
                 res.render("studentClassDashboard",{
-                    allAssignment:allAssignment
+                    allAssignment:allAssignment,
+                    classroom:classroom
                 });
             }
         } else {

@@ -14,7 +14,7 @@ var cookieExtractor = function(req) {
 };
 let opt = {
     jwtFromRequest: ExtractJWT.fromExtractors([ExtractJWT.fromAuthHeaderAsBearerToken(),cookieExtractor]),
-    secretOrKey: "secret"
+    secretOrKey: process.env.JWT_SECRET
 };
 passport.use(new JWTStrategy(opt,async function(jwtPayload,done){
     try{

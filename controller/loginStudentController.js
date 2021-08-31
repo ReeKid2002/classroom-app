@@ -20,7 +20,7 @@ module.exports.createJWT = async function(req,res){
                     email: checkUser.email,
                     type: 'S'
                 }
-                const token = jwt.sign(jwtPayloadStudent, "secret");
+                const token = jwt.sign(jwtPayloadStudent, process.env.JWT_SECRET);
                 res.cookie("jwt",token,{httpOnly:true});
                 res.redirect('/showclassroom');
             } else {

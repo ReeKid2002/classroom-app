@@ -8,7 +8,7 @@ const path = require('path');
 const ejs = require('ejs');
 const passport = require("passport");
 const passportJWT = require("./config/passport-jwt-strategy");
-const passportGoogle = require("./config/passport-google-oauth2-strategy");
+// const passportGoogle = require("./config/passport-google-oauth2-strategy");
 // const findOrCreate = require("mongoose-findorcreate");
 const app = express();
 const PORT = process.env.PORT | 3000;
@@ -16,10 +16,25 @@ const PORT = process.env.PORT | 3000;
 // require('./passport-set-up')
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
-mongoose.connect("mongodb://localhost:27017/classroomDB", {
-  useUnifiedTopology: true,
-  useNewUrlParser: true,
-});
+// mongoose.connect(
+//   process.env.MONGO_URL,
+//   {
+//     useUnifiedTopology: true,
+//     useNewUrlParser: true,
+//   }
+// )
+mongoose.connect(
+  process.env.MONGO_URL,
+  { useNewUrlParser: true, useUnifiedTopology: true },
+  function (err, res) {
+    try {
+      console.log("Connected to Database");
+    } catch (err) {
+      throw err;
+    }
+  }
+);
+
 
 app.use(cookieParser());
 // console.log(path.join(__dirname, "./public"));

@@ -1,5 +1,6 @@
 const Classroom = require('../models/classroomModel');
 const Assignment = require('../models/assignmentModel');
+const Student = require('../models/studentModel'); 
 module.exports.showSingleAssignment = async function(req,res){
     try{
         const currentUser = req.user;
@@ -17,7 +18,8 @@ module.exports.showSingleAssignment = async function(req,res){
                 if(currentUser.person === 'T'){
                     res.render("teacherAssignmentDashboard",{
                         allStudent:allStudent,
-                        assignment:assignment
+                        assignment:assignment,
+                        classId:classId
                     });
                 } else {
                     //Send Data for Studen
@@ -33,6 +35,7 @@ module.exports.showSingleAssignment = async function(req,res){
             })    
         }
     } catch (err) {
+        console.log(err);
         return res.status(500).json({
             message: err
         })
