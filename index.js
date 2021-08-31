@@ -11,7 +11,7 @@ const passportJWT = require("./config/passport-jwt-strategy");
 // const passportGoogle = require("./config/passport-google-oauth2-strategy");
 // const findOrCreate = require("mongoose-findorcreate");
 const app = express();
-const PORT = process.env.PORT | 3000;
+const PORT = process.env.PORT || 3000;
 
 // require('./passport-set-up')
 app.use(bodyParser.urlencoded({ extended: true }));
