@@ -1,2 +1,2 @@
-# classroom-app
+# Classroom-App
 Classroom Application

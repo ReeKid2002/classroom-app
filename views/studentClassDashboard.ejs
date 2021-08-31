@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="icon" type="image/png" href="/image/desk-chair.png"/>
+    <title>Assignment | Student</title>
+    <style>
+        body{
+            background: url(/image/studentClassDashboard.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+
+<body >
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#" style="margin-left: 25px; font-weight: bold;">  Classroom</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle Navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
+                <a href="/showclassroom"><button type="button" class="btn shadow-none"  style="margin: 0 20px 0 20px; color: rgb(255, 255, 255); background-color: rgb(95, 93, 93); font-weight: 700;"> Dashboard
+                </button></a>
+
+                <a href="https://meet.google.com/lookup/<%=classroom.id%>"><button type="button" class="btn btn-success shadow-none" style="font-weight: 600;">Join Meeting</button></a>
+                
+                <form action="/logout" method="POST">
+                <button type="submit" class="btn btn-danger shadow-none" style="margin: 0 20px 0 10px; font-weight: 700;"> Sign out
+                </button>
+                </form>
+            </ul>
+            
+        </div>
+    </nav>
+    <br/>
+    <!-- Assignment -->
+
+    <%if(allAssignment.length === 0){%>
+        <h3 style="text-align: center;">No Assignment to Display !!!</h3>
+    <%}else{%>
+    <%for(let i=0;i<allAssignment.length;i++){%>
+    <div class="card-body" style="border-radius: 10px; margin: auto ; color: rgb(0, 0, 0); margin-top: 10px; background-color: rgb(151, 128, 236); width: 85%;">
+        <h5 class="card-title" style="font-size: 24px; font-weight: bold;"><span><%= allAssignment[i].title %></span>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-success shadow-none" data-bs-toggle="modal" data-bs-target="#exampleModal<%=i%>"  style="background-color: rgb(154, 17, 233); margin-left: 10px; float: right; ">Open
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal<%=i%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-fullscreen">
+                    <div class="modal-content">
+                        <div class="modal-header" >
+                        <h5 class="modal-title" style="margin-left: 50px; font-size: 30px; font-weight: 600;" id="exampleModalLabel">Title : <span style="border-bottom:solid black 2px;" ><%= allAssignment[i].title %></span></h5>
+                            <br/><br/>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body" style="margin-left: 50px;">
+                            <div style="display: flex; margin-top: 10px;">
+                                Description : <textarea style=" margin-left: 15px; border-radius: 10px; padding: 10px;"  name="" id="" cols="80" rows="10" disabled ><%= allAssignment[i].description %> </textarea>
+                            </div>
+                            <div style="margin-top: 50px;">
+                                Max Score : <span style="margin-left: 20px;"> <%= allAssignment[i].totalPoint %></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+    </div>
+
+    <%}}%>
+
+     <!-- <div class="card-body" style="border-radius: 10px; margin: auto ; margin-top: 20px; background-color: rgb(13, 197, 243); width: 85%;">
+        <h5 class="card-title" style="font-size: 25px; font-weight: bold;"><span>Assignment 2</span>
+            <!-- Button trigger modal
+            <button type="button" class="btn btn-success shadow-none" data-bs-toggle="modal" data-bs-target="#exampleModal1"  style="background-color: rgb(154, 17, 233); margin-left: 10px; float: right;">Open
+            </button>
+            <!-- Modal 
+            <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Title</h5>
+                            <br/><br/>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Description <br/><br/> Graded
+                            <br/><br/>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+    </div> -->
+    
+   
+
+
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

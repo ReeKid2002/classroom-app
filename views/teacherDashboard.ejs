@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+
+  <title>Faculty | Dashboard</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
+  <!-- <link rel="stylesheet" href="style.css" /> -->
+  <link rel="icon" type="image/png" href="/image/desk-chair.png"/>
+  <style>
+    body {
+      background-image: url("/image/teacherdashboard.png");
+      background-size: cover;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-sm navbar-dark " style="background-color: black; ">
+    <a class="navbar-brand" href="/showclassroom" style="font-weight: bold; margin-left: 25px; color: white;"> 
+      Classroom
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle Navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 ">
+        <button type="button"  class="btn  btn-outline-success shadow-none" data-bs-toggle="modal"
+          data-bs-target="#exampleModal" style="color: white; font-weight: 800; margin-left: 20px; margin-right: 20px">
+          Create class
+        </button>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLabel">
+                  Enter Class Details
+                </h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+
+              <form action="/createclassroom" method="POST">
+              <div class="modal-body" style="margin-left: 50px; font-size: 20px; font-weight: bold">
+                Class Name : &nbsp;&nbsp;<input style="
+                      border: none;
+                      border-bottom: solid 2px black;
+                      outline: none;
+                    " type="text" name="classroomName" /><br />
+                <br />
+                Subject &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+                &nbsp;&nbsp;<input type="text" name="subject" style="
+                      border: none;
+                      border-bottom: solid 2px black;
+                      outline: none;
+                    " /><br />
+              </div>
+              <button type="submit" class="btn btn-success" style="
+                    margin-left: 110px;
+                    margin-right: 10px;
+                    margin-bottom: 15px;
+                    margin-top: 30px;
+                    padding-right: 120px;
+                    padding-left: 120px;
+                    font-weight: bold;
+                  ">
+                Create
+              </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <li class="nav-item">
+          <form action="/logout" method="POST">
+          <button type="submit" style="margin-right: 25px;font-weight: 800;" class="btn btn-outline-danger shadow-none">
+              Sign Out
+            </button>
+          </form>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+    <!-- <% for ( let i=0;i<allclassroom.length;++i){%>
+    <div class="d-flex flex-column flex-md-row justify-content-md-evenly gap-3">
+      <div class="card mb-2" style="width: 18rem; margin-left: 20px; margin-top: 20px">
+        <img src="https://source.unsplash.com/1200x530/?laptop" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title"> <%= allclassroom[i].name %> </h5>
+          <br />
+          <a href="#" class="btn btn-dark" style="margin-left: 100px">Enter<i class="fab fa-github"></i></a>
+        </div>
+    </div>
+    <%}%> -->
+    <%if(allclassroom.length === 0){%>
+      <h3 style="text-align: center; margin-top: 50px;">Haven't created any class yet !!!</h3>
+    <%}else{%>
+    <div style="display: flex; justify-content: space-around; margin: 15px; flex-wrap: wrap;">
+    <% for ( let i=0;i<allclassroom.length;++i){%>
+    <div class="card mb-2 " style=" width: 280px; margin-top: 20px; " >
+          <img src="https://source.unsplash.com/1200x530/?$<%= allclassroom[i].title %>%20<%= allclassroom[i].subject %>"  class="card-img-top" alt="...">
+          <div class="card-body ">
+            <h5 class="card-title"><%= allclassroom[i].name %></h5>
+            <br>
+            <div style="display: flex; justify-content: space-between;">
+              <a href="/classroom/<%= allclassroom[i]._id %>" class=" btn btn-dark" style="justify-content: center; width: 7rem;" >Enter<i class="fab fa-github"></i></a>
+              <form action="/classroom/delete/<%= id %>/<%= person %>/<%= allclassroom[i]._id %>" method="POST">
+                <button type="submit" href="" class="btn text-light" style="justify-content: center; background-color:  rgb(190, 23, 57); width: 7rem;"> Delete<i class="fab fa-github"></i></button>
+              </form>
+            </div>         
+          </div>
+    </div>
+    <%}}%>
+    </div>
+  <!-- <header class="header">
+      <img class="bg" src="" alt="" />
+    </header> -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous">
+  </script>
+</body>
+</html>
